@@ -33,7 +33,7 @@ function AccountForm({
   return (
     <>
       <div>
-        <Label htmlFor="name" className="mb-2">
+        <Label htmlFor="name" className="mb-2 font-semibold">
           Name
         </Label>
         <Input
@@ -45,7 +45,7 @@ function AccountForm({
         />
       </div>
       <div>
-        <Label htmlFor="email" className="mb-2">
+        <Label htmlFor="email" className="mb-2 font-semibold">
           Email
         </Label>
         <Input
@@ -80,7 +80,13 @@ export default function GeneralPage() {
 
   return (
     <section className="flex-1 p-4 lg:p-8">
-      <h1 className="text-lg lg:text-2xl font-medium text-gray-900 mb-6">
+      <h1
+        className="text-lg lg:text-2xl font-semibold mb-6"
+        style={{
+          fontFamily: "'Maison Neue Extended Demi', 'Segoe UI', sans-serif",
+          color: 'hsl(258, 100%, 38%)',
+        }}
+      >
         General Settings
       </h1>
 
@@ -94,15 +100,41 @@ export default function GeneralPage() {
               <AccountFormWithData state={state} />
             </Suspense>
             {state.error && (
-              <p className="text-red-500 text-sm">{state.error}</p>
+              <p
+                className="text-sm rounded-md px-3 py-2"
+                style={{
+                  background: 'hsl(0, 72%, 96%)',
+                  color: 'hsl(0, 72%, 34%)',
+                }}
+              >
+                {state.error}
+              </p>
             )}
             {state.success && (
-              <p className="text-green-500 text-sm">{state.success}</p>
+              <p
+                className="text-sm rounded-md px-3 py-2"
+                style={{
+                  background: 'hsl(158, 68%, 94%)',
+                  color: 'hsl(158, 68%, 24%)',
+                }}
+              >
+                {state.success}
+              </p>
             )}
             <Button
               type="submit"
-              className="bg-orange-500 hover:bg-orange-600 text-white"
+              className="h-10 rounded-md font-semibold shadow-sm"
+              style={{
+                background: 'hsl(258, 100%, 38%)',
+                color: 'white',
+              }}
               disabled={isPending}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.background = 'hsl(231, 89%, 26%)')
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.background = 'hsl(258, 100%, 38%)')
+              }
             >
               {isPending ? (
                 <>

@@ -241,8 +241,18 @@ function InviteTeamMember() {
           )}
           <Button
             type="submit"
-            className="bg-orange-500 hover:bg-orange-600 text-white"
+            className="h-10 rounded-md font-semibold shadow-sm"
+            style={{
+              background: 'hsl(258, 100%, 38%)',
+              color: 'white',
+            }}
             disabled={isInvitePending || !isOwner}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.background = 'hsl(231, 89%, 26%)')
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.background = 'hsl(258, 100%, 38%)')
+            }
           >
             {isInvitePending ? (
               <>
